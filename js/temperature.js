@@ -15,13 +15,14 @@ const loadWeather = () => {
 
 }
 const displayWeather = data => {
+    console.log(data);
     const inTemp = Math.round((data.main.temp) - 273.15)
     const displayData = document.getElementById('display-data');
     displayData.textContent = '';
     const newDiv = document.createElement('div');
     newDiv.innerHTML = `
         <div class="weather-status text-white text-center">
-            <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="">
+            <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="">
             <h1>${data.name},${data.sys.country}</h1>
             <h3><span>${inTemp}</span>&deg;C</h3>
             <h1 class="lead">${data.weather[0].main}</h1>
